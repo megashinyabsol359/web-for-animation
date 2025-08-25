@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nhóm 3k22 – Trách nhiệm xã hội</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0b0e14;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+
+    header p {
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    nav {
+      background-color: #111827;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background-color: #121826;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(96,165,250, 0.35);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card-body h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .card-body .info {
+      color: #9ca3af;
+      font-size: 15px;
+      margin: 4px 0;
+    }
+
+    .poster img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+
+    dialog#lightbox {
+      border: none;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 0;
+    }
+
+    dialog#lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      display: block;
+      margin: auto;
+      border-radius: 12px;
+    }
+
+    /* Thành viên */
+    .member {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #121826;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      padding: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(96,165,250, 0.35);
+    }
+
+    .member img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .member .info-box {
+      flex: 1;
+    }
+
+    .member .info-box h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .member .info-box p {
+      margin: 4px 0;
+      color: #9ca3af;
+      font-size: 15px;
+    }
+
+    /* sole layout (ziczac) */
+    .member:nth-child(even) {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nhóm 3k22 – Trách nhiệm xã hội</h1>
+    <p>Dự án phim hoạt hình ngắn</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#poster">Poster</a></li>
+      <li><a href="#members">Thành viên</a></li>
+      <li><a href="#video">Video</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Poster -->
+    <section id="poster" class="section">
+      <h2>Poster sản phẩm</h2>
+      <div class="card poster" onclick="openPoster(this)">
+        <img src="images/poster.jpg" alt="Poster sản phẩm">
+      </div>
+    </section>
+
+    <!-- Thành viên -->
+    <section id="members" class="section">
+      <h2>Thành viên nhóm</h2>
+
+      <div class="member">
+        <img src="images/member1.jpg" alt="Thành viên 1">
+        <div class="info-box">
+          <h3>Thành viên 1</h3>
+          <p><strong>MSSV:</strong> 123456789</p>
+          <p><strong>Khoa:</strong> Công nghệ thông tin</p>
+          <p><strong>Bio:</strong> Thành viên tích cực, phụ trách kịch bản.</p>
+        </div>
+      </div>
+
+      <div class="member">
+        <img src="images/member2.jpg" alt="Thành viên 2">
+        <div class="info-box">
+          <h3>Thành viên 2</h3>
+          <p><strong>MSSV:</strong> 987654321</p>
+          <p><strong>Khoa:</strong> Mỹ thuật đa phương tiện</p>
+          <p><strong>Bio:</strong> Thiết kế poster và nhân vật.</p>
+        </div>
+      </div>
+
+      <div class="member">
+        <img src="images/member3.jpg" alt="Thành viên 3">
+        <div class="info-box">
+          <h3>Thành viên 3</h3>
+          <p><strong>MSSV:</strong> 246813579</p>
+          <p><strong>Khoa:</strong> Truyền thông đa phương tiện</p>
+          <p><strong>Bio:</strong> Phụ trách dựng video và âm thanh.</p>
+        </div>
+      </div>
+
+      <div class="member">
+        <img src="images/member4.jpg" alt="Thành viên 4">
+        <div class="info-box">
+          <h3>Thành viên 4</h3>
+          <p><strong>MSSV:</strong> 135792468</p>
+          <p><strong>Khoa:</strong> Công nghệ phần mềm</p>
+          <p><strong>Bio:</strong> Lập trình website và quản lý dữ liệu.</p>
+        </div>
+      </div>
+
+      <div class="member">
+        <img src="images/member5.jpg" alt="Thành viên 5">
+        <div class="info-box">
+          <h3>Thành viên 5</h3>
+          <p><strong>MSSV:</strong> 112233445</p>
+          <p><strong>Khoa:</strong> Thiết kế đồ họa</p>
+          <p><strong>Bio:</strong> Vẽ concept và storyboard.</p>
+        </div>
+      </div>
+
+      <div class="member">
+        <img src="images/member6.jpg" alt="Thành viên 6">
+        <div class="info-box">
+          <h3>Thành viên 6</h3>
+          <p><strong>MSSV:</strong> 998877665</p>
+          <p><strong>Khoa:</strong> Truyền thông</p>
+          <p><strong>Bio:</strong> Phụ trách thuyết trình và báo cáo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video" class="section">
+      <h2>Video sản phẩm</h2>
+      <div class="card video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen title="Video sản phẩm"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <dialog id="lightbox">
+    <img id="lb" src="" alt="Poster phóng to">
+  </dialog>
+
+  <footer>
+    © 2025 Nhóm 3k22 – Trách nhiệm xã hội
+  </footer>
+
+  <script>
+    function openPoster(element) {
+      const source = element.querySelector('img').src;
+      const lightbox = document.getElementById('lightbox');
+      const image = document.getElementById('lb');
+      image.src = source;
+
+      if (lightbox.showModal) {
+        lightbox.showModal();
+      } else {
+        lightbox.setAttribute('open', '');
+      }
+
+      lightbox.addEventListener('click', () => {
+        lightbox.close();
+      });
+    }
+  </script>
+</body>
+</html>

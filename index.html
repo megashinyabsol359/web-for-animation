@@ -184,6 +184,17 @@
       flex-direction: row-reverse;
       text-align: right;
     }
+
+    /* Animation chung */
+    .hidden {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -308,6 +319,42 @@
         lightbox.close();
       });
     }
+
+    // Animation cho sections
+    const sections = document.querySelectorAll(".section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      section.classList.add("hidden");
+      observer.observe(section);
+    });
+
+    // Animation từng member có delay
+    const members = document.querySelectorAll(".member");
+    const memberObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let delay = 0;
+          entry.target.querySelectorAll(".member").forEach((m, i) => {
+            m.style.transitionDelay = `${i * 0.2}s`;
+            m.classList.add("show");
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    members.forEach((member, i) => {
+      member.classList.add("hidden");
+      member.style.transitionDelay = `${i * 0.2}s`; // delay nhẹ cho từng người
+      memberObserver.observe(member);
+    });
   </script>
 </body>
 </html>

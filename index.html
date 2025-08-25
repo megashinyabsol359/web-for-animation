@@ -320,32 +320,29 @@
       });
     }
 
-    // Animation cho sections
+    // Animation cho sections (Poster, Thành viên, Video)
     const sections = document.querySelectorAll(".section");
-    const observer = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
-          observer.unobserve(entry.target);
+          sectionObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
 
     sections.forEach(section => {
       section.classList.add("hidden");
-      observer.observe(section);
+      sectionObserver.observe(section);
     });
 
-    // Animation từng member có delay
+    // Animation cho từng member có delay
     const members = document.querySelectorAll(".member");
     const memberObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          let delay = 0;
-          entry.target.querySelectorAll(".member").forEach((m, i) => {
-            m.style.transitionDelay = `${i * 0.2}s`;
-            m.classList.add("show");
-          });
+          entry.target.classList.add("show");
+          memberObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });

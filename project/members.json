@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Nguyễn Văn A",
+    "mssv": "123456789",
+    "khoa": "Công nghệ thông tin",
+    "bio": "Phụ trách kịch bản và nội dung.",
+    "image": "images/member1.jpg"
+  },
+  {
+    "name": "Trần Thị B",
+    "mssv": "987654321",
+    "khoa": "Mỹ thuật đa phương tiện",
+    "bio": "Thiết kế poster và nhân vật.",
+    "image": "images/member2.jpg"
+  },
+  {
+    "name": "Lê Văn C",
+    "mssv": "246813579",
+    "khoa": "Truyền thông đa phương tiện",
+    "bio": "Phụ trách dựng video và âm thanh.",
+    "image": "images/member3.jpg"
+  }
+]

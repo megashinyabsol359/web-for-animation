@@ -195,6 +195,31 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Nút back to top */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -312,6 +337,9 @@
     © 2025 Nhóm 3k21 – Trách nhiệm xã hội
   </footer>
 
+  <!-- Nút back-to-top -->
+  <button id="backToTop" title="Lên đầu">↑</button>
+
   <script>
     function openPoster(element) {
       const source = element.querySelector('img').src;
@@ -362,7 +390,21 @@
       member.style.transitionDelay = `${i * 0.2}s`; // delay nhẹ cho từng người
       memberObserver.observe(member);
     });
+
+    // Nút back-to-top
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
 </body>
 </html>
-
